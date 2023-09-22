@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Works</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Include your CSS file -->
+    <style>
+        /* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #009688; /* Bright theme color */
+            margin-bottom: 20px;
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Add margin to separate from the h1 element */
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        table th {
+            background-color: #009688;
+            color: #fff;
+        }
+
+        /* Submit button */
+        .form-container button {
+            background-color: #009688; /* Bright theme color */
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Back to Home link */
+        a {
+            color: #009688;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Logout button */
+        .form-container .logout-button {
+            background-color: #f44336; /* Red color for logout button */
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pending Works</h1>
+    <div class="form-container">
+        <form action="/pending_works" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pole No.</th>
+                        <th>Area</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                        <th>Error Code</th>
+                        <th>Error Type</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for work in pending_works %}
+                    <tr>
+                        <td>{{ work[1] }}</td>
+                        <td>{{ work[2] }}</td>
+                        <td>{{ work[3] }}</td>
+                        <td>{{ work[4] }}</td>
+                        <td>{{ work[5] }}</td>
+                        <td>{{ work[6] }}</td>
+                        <td>{{ work[7] }}</td>
+                        <td>
+                            <input type="hidden" name="work_id" value="{{ work[0] }}">
+                            <button type="submit" name="mark_done">Mark Done</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+        </form>
+    </div>
+    <a href="/lineman_dashboard">Back to Home</a>
+</body>
+</html>

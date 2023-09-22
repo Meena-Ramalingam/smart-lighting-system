@@ -16,7 +16,7 @@ cursor.execute('''
         date TEXT NOT NULL,
         error_code TEXT NOT NULL,
         error_type TEXT NOT NULL,
-        is_emergency BOOLEAN NOT NULL,
+      
         is_pending BOOLEAN NOT NULL
     )
 ''')

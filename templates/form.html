@@ -1,0 +1,175 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lineman Request - Bharat Smart Lighting System</title>
+    <style>
+        /* CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Bharat Smart Lighting System - Lineman Request</h1>
+    <div class="container">
+        <form id="lineman-request-form">
+            <div class="form-group">
+                <label for="pole_no">Pole Number:</label>
+                <input type="text" id="pole_no" name="pole_no" required>
+            </div>
+            <div class="form-group">
+                <label for="area">Area:</label>
+                <input type="text" id="area" name="area" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="text" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="text" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="error_code">Error Code:</label>
+                <input type="text" id="error_code" name="error_code" required>
+            </div>
+            <div class="form-group">
+                <label for="error_type">Error Type:</label>
+                <input type="text" id="error_type" name="error_type" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status">
+                    <option value="pending" selected>Pending</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="button">Submit Request</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript code for handling form submission and AJAX request
+        document.getElementById("lineman-request-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get form data
+            const formData = new FormData(this);
+
+            // Send an AJAX request to the Flask backend for database update
+            fetch("/submit_lineman_request", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Request submitted successfully!");
+                    // Optionally, you can redirect to another page here
+                } else {
+                    alert("Request submission failed.");
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while submitting the request.");
+            });
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Lighting System</title>
+<style>
+    /* styles.css */
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #009688; /* Bright theme color */
+    margin-bottom: 20px;
+}
+
+/* Form container */
+.form-container {
+    background-color: #ffffff;
+    padding: 70px;
+    border-radius: 16px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Add margin to separate from the h1 element */
+}
+
+/* Form inputs */
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Submit button */
+.form-container button {
+    background-color: #009688; /* Bright theme color */
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+</style>
+</head>
+<body>
+    <h1>Smart Lighting System - fault information</h1>
+    <div class="form-container">
+    <form action="/submit" method="post">
+        <label for="pole_no">Pole No.:</label>
+        <input type="text" id="pole_no" name="pole_no" required><br>
+
+        <label for="area">Area:</label>
+        <input type="text" id="area" name="area" required><br>
+
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time" required><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br>
+
+        <label for="error_code">Error Code:</label>
+        <input type="text" id="error_code" name="error_code" required><br>
+
+        <label for="error_type">Error Type:</label>
+        <input type="text" id="error_type" name="error_type" required><br>
+
+        <label for="is_pending">is_pending:</label>
+        <input type="text" id="is_pending" name="is_pending" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
